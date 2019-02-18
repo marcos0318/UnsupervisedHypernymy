@@ -36,7 +36,7 @@ def load_dataset(dataset_file):
 
 def load_embeddings(embedding_file):
     with open(embedding_file, "r") as fin:
-        embeddings = { line.strip().split()[0]: np.array([float(fl) for fl in line.strip().split()[1:]]) for line in fin.readlines()}
+        embeddings = { line.strip().split()[0]: np.array([float(fl) for fl in line.strip().split()[-300:]]) for line in fin.readlines()}
     return embeddings
 
 for e_name in emb_files:
