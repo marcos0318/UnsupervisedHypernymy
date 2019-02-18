@@ -43,4 +43,18 @@ for f_name in files:
     data = load_dataset(dataset_path + f_name)
 
     for e_name in emb_files:
-        load_embeddings(emb_path + e_name))
+        emb = load_embeddings(emb_path + e_name))
+
+        open(f_name+e_na+".result", "w") as fout:
+            for line in data:
+                try:
+                    w1, w2, label = line
+                    cos = cosine_similarity(emb[w1], emb[w2])
+                    
+                except:
+                    print(line, "cannot recognize word here")
+                fout.write(w1+"\t"+w2+"\t"+label+"\t%.4f\n"% cos)
+
+
+
+
