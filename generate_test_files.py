@@ -1,7 +1,7 @@
 import codecs
 import numpy as np
 
-from sklearn.metric.pairwise import cosine_similarity
+from scipy import spatial
 
 dataset_path = "./datasets/"
 
@@ -49,7 +49,7 @@ for f_name in files:
             for line in data:
                 try:
                     w1, w2, label = line
-                    cos = cosine_similarity(emb[w1], emb[w2])
+                    cos = 1- spatial.distance.cosine(emb[w1], emb[w2])
                     
                 except:
                     print(line, "cannot recognize word here")
