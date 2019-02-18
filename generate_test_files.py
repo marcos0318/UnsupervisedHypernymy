@@ -45,7 +45,7 @@ for f_name in files:
     for e_name in emb_files:
         emb = load_embeddings(emb_path + e_name)
 
-        open(f_name+e_na+".result", "w") as fout:
+        with open(f_name+e_na+".result", "w") as fout:
             for line in data:
                 try:
                     w1, w2, label = line
