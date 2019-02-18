@@ -39,13 +39,12 @@ def load_embeddings(embedding_file):
         embeddings = { line.strip().split()[0]: np.array([float(fl) for fl in line.strip().split()[1:]]) for line in fin.readlines()}
     return embeddings
 
-for f_name in files:
-    data = load_dataset(dataset_path + f_name)
-
-    for e_name in emb_files:
+for e_name in emb_files:
         emb = load_embeddings(emb_path + e_name)
+    for f_name in files:
+        data = load_dataset(dataset_path + f_name)
 
-        with open(f_name+e_na+".result", "w") as fout:
+        with open(f_name+e_name+".result", "w") as fout:
             for line in data:
                 try:
                     w1, w2, label = line
