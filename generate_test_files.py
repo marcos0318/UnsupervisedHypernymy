@@ -40,7 +40,7 @@ def load_embeddings(embedding_file):
     return embeddings
 
 for e_name in emb_files:
-        emb = load_embeddings(emb_path + e_name)
+    emb = load_embeddings(emb_path + e_name)
     for f_name in files:
         data = load_dataset(dataset_path + f_name)
 
