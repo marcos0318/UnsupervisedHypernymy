@@ -1,7 +1,6 @@
 import codecs
 import numpy as np
 
-from docopt import docopt
 from sklearn.metrics import average_precision_score
 import sys
 
